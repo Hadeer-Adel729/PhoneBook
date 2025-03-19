@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Phone Book</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .ui-header {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .ui-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+
+        .ui-btn:hover {
+            background-color: #45a049;
+        }
+
+        .ui-listview {
+            margin-top: 20px;
+        }
+
+        .ui-listview li a {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .ui-listview li a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .ui-content {
+            padding: 20px;
+        }
+
+        form label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        form input, form select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form button {
+            margin-top: 20px;
+        }
+
+        .ui-footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-top: 1px solid #ddd;
+        }
+
+        .search-area {
+            margin-bottom: 20px;
+        }
+
+        .search-area input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="jquery.js"></script>
+</head>
+<body>
+    <!-- Home Page -->
+    <div data-role="page" id="home">
+        <div data-role="header">
+            <a href="#add-contact" class="ui-btn ui-btn-right ui-btn-b">Add</a>
+            <h1>Contact List</h1>
+        </div>
+        <div data-role="content">
+            <div class="search-area">
+                <input type="text" id="search-contact" placeholder="Filter items...">
+            </div>
+            <ul data-role="listview" data-inset="true" id="contact-list">
+            </ul>
+        </div>
+    </div>
+
+    <!-- Add Contact Page -->
+    <div data-role="page" id="add-contact">
+        <div data-role="header">
+            <h1>Add Contact</h1>
+        </div>
+        <div data-role="content">
+            <form id="add-contact-form">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" required>
+                <label for="phone">Phone:</label>
+                <input type="tel" name="phone" id="phone" required>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required>
+                <label for="gender">Gender:</label>
+                <select name="gender" id="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                <button type="submit" class="ui-btn ui-btn-b">Save</button>
+                <a href="#home" class="ui-btn ui-btn-b">Cancel</a>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact Details Page -->
+    <div data-role="page" id="contact-details">
+        <div data-role="header">
+            <h1>Contact Details</h1>
+        </div>
+        <div data-role="content" id="contact-info">
+        </div>
+        <div data-role="footer">
+            <a href="#home" class="ui-btn ui-btn-b">Back</a>
+            <a href="#" class="ui-btn ui-btn-b ui-btn-danger" id="delete-contact">Delete</a>
+        </div>
+    </div>
+</body>
+</html>
